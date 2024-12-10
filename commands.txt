@@ -1,0 +1,14 @@
+python -m venv venv
+
+.\venv\Scripts\activate
+
+pip install package
+
+pip install -r requirements.txt
+
+uvicorn app.main:app --reload
+
+celery -A app.tasks.celery:celery worker --loglevel=INFO --pool=solo
+
+
+Ключ в google: "uhzn neuu oweb jvge"
