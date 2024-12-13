@@ -12,8 +12,6 @@ COPY . .
 
 RUN chmod a+x /booking/docker/*.sh
 
-RUN alembic init alembic
-
-RUN alembic upgrade head
+ENTRYPOINT ["/booking/docker/entrypoint.sh"]
 
 CMD ["gunicorn", "app.main:app", "--workers", "1", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind=0.0.0.0:8000"]
